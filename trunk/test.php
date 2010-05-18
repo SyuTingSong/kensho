@@ -26,4 +26,5 @@ $v = new ArrayValidator;
 if($v->validate($test, $postDef)) {
 	echo "success";
 }
+
 ?>
