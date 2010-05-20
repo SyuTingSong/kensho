@@ -83,8 +83,10 @@ class ArrayValidator extends TypeValidator {
 			}
 		}
 		//start and end includes the () $validation do not need this
-		$validation = substr($str, $start + 1, $end - $start - 2);
-		$str = substr($str, $end);
+		if($end > $start) {
+			$validation = substr($str, $start + 1, $end - $start - 2);
+			$str = substr($str, $end);
+		}
 		if($validation === false || $validation === "") {
 			$validation = null;
 		}
