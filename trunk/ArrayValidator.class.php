@@ -34,7 +34,7 @@ class ArrayValidator extends TypeValidator {
 					if(! $validator->validate($v, $d['validation'])) {
 						unset($array[$k]);
 						$success = false;
-						array_push($this->failList, $k);
+						$this->failList[$k] = $v;
 						trigger_error("$k has been removed since validation failed.", E_USER_NOTICE);
 					}
 				} else {
@@ -44,7 +44,7 @@ class ArrayValidator extends TypeValidator {
 				unset($array[$k]);
 				$success = false;
 				trigger_error("$k has been removed since validation not specified.", E_USER_NOTICE);
-				array_push($this->failList, $k);
+				$this->failList[$k] = $v;
 			}
 		}
 		return $success;
