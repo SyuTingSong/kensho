@@ -12,6 +12,9 @@ class ArrayValidator extends TypeValidator {
 	public function validate(&$array, $validation) {
 		// Analyze the validation string
 		$definition = trim($validation);
+		if(empty($definition)) {
+			return is_array($array);
+		}
 		while(strlen($definition) > 0) {
 			$key = $this->parseIdentifier($definition);
 			$this->parseSeparator($definition);
