@@ -4,8 +4,8 @@ class KenshoLite {
 	const ERROR = 2;
 	const MISSING = 3;
 
-	private $error = array();
-	private $missing = array();
+	public $error = array();
+	public $missing = array();
 	private $stopValidating = false;
 
 	public function __construct() { }
