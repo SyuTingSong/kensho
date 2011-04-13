@@ -1,0 +1,31 @@
+= Syntax =
+A VALIDATION should be<br>
+FIELDVALIDATION`[`, FIELDVALIDATION...`]`
+
+A FIELDVALIDATION should be<br>
+{_name_|_index_}:_DATATYPE_`[`(_SUBVALIDATION_)`]`<br>
+`[`REQUIRED`]`<br>
+`[`ON {ERROR|MISSING} {REJECT|BREAK|SET _value_}`]`<br>
+
+Available _DATATYPE_ is
+  * string
+    * email
+    * url
+    * date
+  * number
+    * integer
+      * dec
+      * hex
+      * oct
+      * bin
+    * float
+  * boolean
+Available _SUBVALIDATION_ is<br>
+*string* a reg-ex pattern<br>
+example: `string('/^\d{2}\w+$/')`<br>
+*date*   date format<br>
+example: date('Y-m-d')<br>
+*number* and all numeric types allow comma separated comparison expression<br>
+example1: integer(>18, <90, !=35)<br>
+example2: float(>3.1, <6.6)<br>
+example3: integer(in (3,6,9, 12,15,18))<br>
