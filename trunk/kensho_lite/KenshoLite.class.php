@@ -10,6 +10,9 @@ class KenshoLite {
 
 	public function __construct() { }
 	public function __invoke(&$var, $validation) {
+		return $this->validate($var, $validation);
+	}
+	public function validate(&$var, $validation) {
 		if($this->__process_array($var, $validation) == KenshoLite::OK)
 			return true;
 		else
@@ -103,10 +106,6 @@ class KenshoLite {
 				'defined' => false,
 			),
 		);
-		$suffix = function ($what, $action, $value='') {
-			if($what == 'error' || $what == 'missing') {
-			} 
-		};
 		do {
 			$keyword = strtolower($this->parseString($validation, ', ', 'leaveEnd'));
 			if ( $keyword == 'required' ) {
